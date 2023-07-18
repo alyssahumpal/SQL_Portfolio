@@ -1,0 +1,42 @@
+/** Dermatology Order Form:
+Gauze (2 boxes) (item number 19845),
+Sterile pens (1 box) (item number 57858),
+Sterile Drapes (1 box) (item number 86792),
+Scalpels (2 boxes) (item number 67898),
+Forceps (5 items) (item number 90388)
+Tissue Scissors (5 items) (item number 91783)
+Needle Driver (5 items) (item number 34982)
+Sutures (2 boxes) (item number 92758)
+Chloraprep (1 box) (item number 50673)
+Gloves (4 boxes) (item number 48369)
+Gowns (2 boxes) (item number 77937)
+Eye Protection (5 items) (item number 92180)
+Bandages (8 boxes) (item number 11860)
+Drysol (3 bottles) (item number 56482)
+Dermabond (6 items) (item number 29460)
+Add order status
+**/
+
+CREATE TABLE order_form (id INTEGER PRIMARY KEY, item_number INTEGER, item TEXT, quantity INTEGER, unit TEXT, order_status TEXT);
+
+INSERT INTO order_form VALUES (1, 19845, "Gauze", 2, "Box", "Not Ordered");
+INSERT INTO order_form VALUES (2, 57858, "Sterile Pens", 1, "Box", "Not ordered");
+INSERT INTO order_form VALUES (3, 86792, "Sterile Drapes", 1, "Box", "Ordered");
+INSERT INTO order_form VALUES (4, 67898, "Scalpels", 2, "Box", "Not Ordered");
+INSERT INTO order_form VALUES (5, 90388, "Forceps", 5, "Item", "Ordered");
+INSERT INTO order_form VALUES (6, 91783, "Tissue Scissors", 5, "Item", "Ordered");
+INSERT INTO order_form VALUES (7, 34982, "Needle Driver", 5, "Item", "Not Ordered");
+INSERT INTO order_form VALUES (8, 92758, "Sutures", 2, "Box", "Not Ordered");
+INSERT INTO order_form VALUES (9, 50673, "Chloraprep", 1, "Box", "Not Ordered");
+INSERT INTO order_form VALUES (10, 48369, "Gloves", 4, "Box", "Not Ordered");
+INSERT INTO order_form VALUES (11, 77937, "Gowns", 2, "Box", "Ordered");
+INSERT INTO order_form VALUES (12, 92180, "Eye Protection", 5, "Items", "Ordered");
+INSERT INTO order_form VALUES (13, 11860, "Bandages", 8, "Box", "Ordered");
+INSERT INTO order_form VALUES (14, 56482, "Drysol", 3, "Bottle", "Ordered");
+INSERT INTO order_form VALUES (15, 29460, "Dermabond", 6, "Items", "Ordered");
+
+SELECT *
+FROM order_form
+ORDER BY order_status
+DESC 
+
