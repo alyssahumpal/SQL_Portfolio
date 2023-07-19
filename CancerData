@@ -1,0 +1,59 @@
+/* Cleaning and updating data */
+
+SELECT 
+DISTINCT Smokes
+FROM `runningqueries.health_data.cervical_cancer`;
+
+SELECT
+*
+FROM `runningqueries.health_data.cervical_cancer`
+WHERE 
+Smokes = "?";
+
+DELETE 
+`runningqueries.health_data.cervical_cancer`
+WHERE
+Smokes = "?";
+
+SELECT
+*
+FROM `runningqueries.health_data.cervical_cancer`
+WHERE 
+Num_of_pregnancies = "?";
+
+UPDATE 
+`runningqueries.health_data.cervical_cancer`
+SET 
+Num_of_pregnancies = "UNK"
+WHERE
+Num_of_pregnancies = "?";
+
+SELECT
+*
+FROM `runningqueries.health_data.cervical_cancer`
+WHERE First_sexual_intercourse = "?";
+
+DELETE 
+`runningqueries.health_data.cervical_cancer`
+WHERE First_sexual_intercourse = "?";
+
+UPDATE 
+`runningqueries.health_data.cervical_cancer`
+SET
+Number_of_sexual_partners = "UNK"
+WHERE
+Number_of_sexual_partners = "?";
+ 
+SELECT
+Age, 
+Number_of_sexual_partners, 
+First_sexual_intercourse,
+Num_of_pregnancies,
+Smokes, 
+Dx_Cancer
+FROM 
+`runningqueries.health_data.cervical_cancer`
+GROUP BY
+Dx_Cancer, Age, Number_of_sexual_partners, First_sexual_intercourse, Num_of_pregnancies, Smokes
+ORDER BY
+Age 
