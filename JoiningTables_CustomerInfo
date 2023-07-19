@@ -1,0 +1,33 @@
+CREATE TABLE customers 
+(customer_name TEXT, street_address TEXT, city_state TEXT, zip_code INTEGER, customer_email TEXT, customer_type TEXT);
+
+INSERT INTO customers VALUES ("Sarah Wells", "64 North Street", "Lexington, KY", 40502, "sarahwells@email.com", "Gold Member");
+INSERT INTO customers VALUES ("Mike Smith", "8648 Cherry Drive", "Columbus, OH", 43004, "mikesmith@email.com", "Gold Member");
+INSERT INTO customers VALUES ("Jenna Williams", "1234 Chesnut Avenue", "Clinton, MD", 27602, "jennawilliams@email.com", "Silver Member");
+INSERT INTO customers VALUES ("Jason Chapman", "987 West Street", "Orlando, FL", 32789, "jasonchapman@email.com", "Silver Member");
+
+CREATE TABLE customer_info 
+(customer_id INTEGER, name TEXT, contact INTEGER, email TEXT);
+
+INSERT INTO customer_info VALUES (12345678, "Sarah Wells", 3246588765, "sarahwells@email.com");
+INSERT INTO customer_info VALUES (23456789, "Mike Smith", 6894890098, "mikesmith@email.com");
+INSERT INTO customer_info VALUES (34567890, "Jenna Williams", 6549878989, "jennawilliams@email.com");
+INSERT INTO customer_info VALUES (87654321, "Jason Chapman", 4569576654, "jasonchapman@email.com");
+
+/* Joining related tables to return costomer data that includes all relevant information for Gold Members */
+
+SELECT 
+customer_info.customer_id, 
+customer_info.name, 
+customer_info.email, 
+customers.city_state,
+customers.zip_code, 
+customers.customer_type
+FROM 
+customers
+JOIN customer_info
+ON customers.customer_name = customer_info.name 
+WHERE 
+customer_type = "Gold Member"
+ORDER BY 
+city_state 
