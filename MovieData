@@ -1,0 +1,58 @@
+/* Viewing top 10 most profitable action movies from 2015 */
+
+SELECT 
+Movie_Title, 
+Release_Date,
+Genre,
+Director__1_,
+Budget_, 
+Revenue,
+(Revenue - Budget_) AS Profit 
+FROM `runningqueries.movie_data.movies` 
+WHERE 
+Release_Date BETWEEN "2015-01-01" and "2015-12-31"
+AND 
+Genre = "Action"
+ORDER BY Profit
+DESC
+LIMIT 10
+
+/* Running a new query to view top 10 most profitable comedy movies for 2016 */
+
+SELECT 
+Movie_Title, 
+Release_Date,
+Genre,
+Director__1_,
+Budget_, 
+Revenue,
+(Revenue - Budget_) AS Profit 
+FROM `runningqueries.movie_data.movies` 
+WHERE 
+Release_Date BETWEEN "2016-01-01" and "2016-12-31"
+AND 
+Genre = "Comedy"
+ORDER BY Profit
+DESC
+LIMIT 10
+
+/* Viewing which action or comedy movie had the highest budget in 2015 to 2016 */
+
+SELECT 
+Movie_Title, 
+Release_Date,
+Genre,
+Director__1_,
+Budget_, 
+Revenue,
+(Revenue - Budget_) AS Profit 
+FROM `runningqueries.movie_data.movies` 
+WHERE 
+Release_Date BETWEEN "2015-01-01" and "2016-12-31"
+AND 
+Genre = "Comedy" 
+OR
+Genre = "Action"
+ORDER BY Budget_
+DESC
+LIMIT 100
