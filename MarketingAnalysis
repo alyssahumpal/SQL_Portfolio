@@ -23,28 +23,30 @@ SELECT SUM(MntTotal)
 SELECT COUNT (marital_married) AS MultiAdultHome
 FROM `runningqueries.Portfolio_Project.marketing_data`
 WHERE
-marital_married > 0
-OR
-marital_Together > 0
-AND
 Kidhome = 0
 AND
-Teenhome = 0;
+Teenhome = 0
+AND
+marital_married > 0
+OR
+marital_Together > 0;
 
 
 SELECT SUM(MntTotal)
 FROM `runningqueries.Portfolio_Project.marketing_data`
 WHERE
-marital_married > 0
-OR
-marital_Together > 0
-AND
 Kidhome = 0
 AND
-Teenhome = 0;
+Teenhome = 0
+AND
+marital_married > 0
+OR
+marital_Together > 0;
 
 
-/* 1004 customers are married or living with a significant other in the home with no children, total spent by this population was $633,901 */
+
+/* 795 customers are married or living with a significant other in the home with no children, total spent by this population was $544,585 */
+
 
 
 SELECT COUNT (kidhome) AS SingleAdultHome
@@ -74,4 +76,5 @@ marital_Together = 0;
 /* 251 customers are presumably living alone, total spent by this population was $262,782 */
 
 
-/* We can see from this analysis that although the majority of our customers are from a family home, we are seeing the most profits from adults who are married or living with a significant other  */
+/* We can see from this analysis that 1,577 are people shopping for families. This population also brings in roughly 40% of the store's revenue. The multi-adult home customer base consists of 795 customers,
+but they bring in roughly 39% of the store's revenue. So, although the "FamilyHomes" population brings in the most revenue overall, the "MultiAdultHomes" population is bringing in the most revenue per customer. */
