@@ -1,0 +1,77 @@
+/* Our job is to find out which customers are bringing in the most revenue */
+
+/* First we want to see who our customers are. We will find the number of customers who are shopping for a family home, a multi-adult home, and a single adult home. 
+We will also find the total amount spent from each group */
+
+
+SELECT COUNT (Kidhome) AS FamilyHome
+ FROM `runningqueries.Portfolio_Project.marketing_data`
+ WHERE Kidhome > 0
+ OR
+ Teenhome > 0;
+
+
+SELECT SUM(MntTotal)
+ FROM `runningqueries.Portfolio_Project.marketing_data`
+ WHERE Kidhome > 0
+ OR
+ Teenhome > 0
+ 
+ /* 1577 customers are living in a family home, total spent by this customer population was $587,018 */
+
+
+SELECT COUNT (marital_married) AS MultiAdultHome
+FROM `runningqueries.Portfolio_Project.marketing_data`
+WHERE
+marital_married > 0
+OR
+marital_Together > 0
+AND
+Kidhome = 0
+AND
+Teenhome = 0;
+
+
+SELECT SUM(MntTotal)
+FROM `runningqueries.Portfolio_Project.marketing_data`
+WHERE
+marital_married > 0
+OR
+marital_Together > 0
+AND
+Kidhome = 0
+AND
+Teenhome = 0;
+
+
+/* 1004 customers are married or living with a significant other in the home with no children, total spent by this population was $633,901 */
+
+
+SELECT COUNT (kidhome) AS SingleAdultHome
+FROM `runningqueries.Portfolio_Project.marketing_data`
+WHERE
+Kidhome = 0
+AND
+Teenhome = 0
+AND
+marital_Married = 0
+AND
+marital_Together = 0;
+
+
+SELECT SUM(MntTotal)
+FROM `runningqueries.Portfolio_Project.marketing_data`
+WHERE
+Kidhome = 0
+AND
+Teenhome = 0
+AND
+marital_Married = 0
+AND
+marital_Together = 0;
+
+
+/* 251 customers are presumably living alone, total spent by this population was $262,782 */
+
+
+/* We can see from this analysis that although the majority of our customers are from a family home, we are seeing the most profits from adults who are married or living with a significant other  */
